@@ -27,9 +27,11 @@ class GamesController < ApplicationController
       @phrase = "You are all wrong"
       @score = 0
     end
+    session["score"] == nil ? session["score"] = @score : session["score"] += @score
   end
 
   private
+
   def grid_test(grid, guess)
     tester = guess.upcase.split("")
     tester.each do |letter|
